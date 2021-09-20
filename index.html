@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drag and drop</title>
+        <style>
+            article{
+                width:28rem;
+                height: 26em;
+                border:4px solid red;
+            }
+        </style>
+         <script>
+            function drag(event){
+                event.dataTransfer.setData("key1",event.target.id);
+    
+            }
+            function allowDrop(event){
+                event.preventDefault();
+            }
+            function drop(event){
+              event.preventDefault();
+              let id = event.dataTransfer.getData("key1");
+              event.target.appendChild(document.getElementById(id));
+    
+            }
+    
+        </script>
+    </head>
+   
+    <body>
+        <article id="article1" ondragover="allowDrop(event)" ondrop="drop(event)"></article><br><br>
+        <img id="logo" src="logo-10.jpg" width="448px" height="417px"  Drag="true" ondragstart="drag(event)" >
+
+        
+    </body>
+</html>
