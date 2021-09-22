@@ -32,8 +32,8 @@
             event.preventDefault();
         }
 
-        function Drag(event){
-            if(event.target.id ==="logo1"){
+        function drag(event){
+            if(event.target.id === "logo1"){
                 event.dataTransfer.setData("image1",event.target.id);
             }
         }
@@ -43,29 +43,69 @@
              if(event.target.id ==="article2"){
                  let id = event.dataTransfer.getData("image1");
                  event.target.appendChild(document.getElementById(id));
-             }
+             }   
+         }   
 
-             
-         }
+
+
+         function dropAllow(event){
+            event.preventDefault();
+        }
+
+        function drag(event){
+            if(event.target.id === "logo2"){
+                event.dataTransfer.setData("image2",event.target.id);
+            }
+        }
+          
+         function drop(event){
+             event.preventDefault();
+             if(event.target.id ==="article1"){
+                 let id = event.dataTransfer.getData("image2");
+                 event.target.appendChild(document.getElementById(id));
+             }   
+         }   
+
+
+
+         function dropAllow(event){
+            event.preventDefault();
+        }
+
+        function drag(event){
+            if(event.target.id === "logo3"){
+                event.dataTransfer.setData("image3",event.target.id);
+            }
+        }
+          
+         function drop(event){
+             event.preventDefault();
+             if(event.target.id ==="article3"){
+                 let id = event.dataTransfer.getData("image3");
+                 event.target.appendchild(document.getElementById(id));
+             }   
+         }   
       
+
     </script>
     </head>
     <body>
         <section>
-            <article></article>
-             <img src="logo-10.jpg"  draggable="true" id="logo1" ondragstart="Drag(event)">
+            <article id="article1" ondrop="drop(event)" ondragover="dropAllow(event)"></article>
+             <img src="logo-10.jpg"  draggable = "true" id="logo1" ondragstart="drag(event)">
            
         </section>
 
         <section>
-            <article id = "article2" ondrop="drop(event)" ondragover="dropAllow(event)"></article>
-            <img src="logo-10.jpg">
+            <article id="article2" ondrop="drop(event)" ondragover="dropAllow(event)"></article>
+            <img src="logo-10.jpg" draggable="true" id="logo2" ondragstart="drag(event)">
+            
             
         </section>
 
         <section>
-            <article ></article>
-            <img src="logo-10.jpg">
+            <article id="article3" ondrop="drop(event)" ondragover="dropAllow(event)"></article>
+            <img src="logo-10.jpg" draggable="true" id="logo3" ondragstart="drag(event)">
            
         </section>
 
